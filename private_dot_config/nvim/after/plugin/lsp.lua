@@ -17,7 +17,7 @@ cmp.setup({
 -- here you can setup the language servers
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {"clangd", "ruby_lsp", "standardrb", "sqls", "jdtls"},
+  ensure_installed = {"clangd", "ruby_lsp", "standardrb", "sqls", "jdtls", "gopls", "bashls", "cssmodules_ls", "eslint", "gopls", "tsserver", "twiggy_language_server"},
   handlers = {
     function(server_name)
       require('lspconfig')[server_name].setup({})

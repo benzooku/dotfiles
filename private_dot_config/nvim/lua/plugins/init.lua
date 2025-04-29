@@ -1,91 +1,126 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    {
+        "stevearc/conform.nvim",
+        -- event = 'BufWritePre', -- uncomment for format on save
+        opts = require "configs.conform",
+    },
+
+    -- These are some examples, uncomment them if you want to see them work!
+    {
+        "neovim/nvim-lspconfig",
+        config = function()
+            require("nvchad.configs.lspconfig").defaults()
+            require "configs.lspconfig"
+        end,
+    },
+
+    {
+        'nvim-telescope/telescope.nvim', version = '0.1.6',
+        -- or                            , branch = '0.1.x',
+        dependencies = { {'nvim-lua/plenary.nvim'} },
+        lazy = false
+    },
+
+
+    { 'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+        lazy = false
+    },
+    {
+        "baliestri/aura-theme",
+        lazy = false,
+        priority = 1000,
+        config = function(plugin)
+            vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
+            vim.cmd([[colorscheme aura-dark]])
+        end
+    },
+
+
+
+    'nvim-treesitter/playground',
+    'tpope/vim-fugitive',
+    {
+        'mbbill/undotree',
+        lazy = false
+    },
+
+
+    {    
+        'VonHeikemen/lsp-zero.nvim',
+        version = 'v3.x',
+        dependencies = {
+            --- Uncomment the two plugins below if you want to manage the language servers from neovim
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
+
+            {'neovim/nvim-lspconfig'},
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'L3MON4D3/LuaSnip'},
+
+        }
+    },
+
+    'tpope/vim-endwise',
+
+
+    "nvim-lua/plenary.nvim",
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        lazy = false
+    },
+
+    'echasnovski/mini.nvim',
+
+    { 'https://codeberg.org/esensar/nvim-dev-container' },
+
+    {
+        "NvChad/NvChad",
+        lazy = false,
+        branch = "v2.5",
+        import = "nvchad.plugins",
+    },
+    {
+        "stevearc/conform.nvim",
+        -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
-  },
+    },
 
-  -- These are some examples, uncomment them if you want to see them work!
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
-    end,
-  },
-
-  {
-    'nvim-telescope/telescope.nvim', version = '0.1.6',
-    -- or                            , branch = '0.1.x',
-    dependencies = { {'nvim-lua/plenary.nvim'} },
-    lazy = false
-  },
+        
+   
+    
 
 
-  { 'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    lazy = false
-  },
-  {
-    "baliestri/aura-theme",
-    lazy = false,
-    priority = 1000,
-    config = function(plugin)
-      vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
-      vim.cmd([[colorscheme aura-dark]])
-    end
-  },
+    'nvim-treesitter/playground',
+    'tpope/vim-fugitive',
+    'mbbill/undotree', 
+
+    'tpope/vim-endwise',
+    
+    
+    "nvim-lua/plenary.nvim", -- don't forget to add this one if you don't have it yet!
+
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" }
+    },
+
+    'echasnovski/mini.nvim',
+
+    
 
 
+    {
+        "nvchad/base46",
+        lazy = true,
+        build = function()
+            require("base46").load_all_highlights()
+        end,
+    },
 
-  'nvim-treesitter/playground',
-  'tpope/vim-fugitive',
-  {
-    'mbbill/undotree',
-    lazy = false
-  },
-
-
-  {    
-    'VonHeikemen/lsp-zero.nvim',
-    version = 'v3.x',
-    dependencies = {
-      --- Uncomment the two plugins below if you want to manage the language servers from neovim
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
-
-      {'neovim/nvim-lspconfig'},
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'L3MON4D3/LuaSnip'},
-
-    }
-  },
-
-  'tpope/vim-endwise',
-
-
-  "nvim-lua/plenary.nvim",
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    lazy = false
-  },
-
-  'echasnovski/mini.nvim',
-
-  { 'https://codeberg.org/esensar/nvim-dev-container' },
-
-  {
-    "NvChad/NvChad",
-    lazy = false,
-    branch = "v2.5",
-    import = "nvchad.plugins",
-  },
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
-  },
+    "nvchad/volt", -- optional, needed for theme switcher
 }

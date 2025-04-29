@@ -5,7 +5,12 @@ local on_init = configs.on_init
 local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "clangd", "ruby_lsp", "standardrb", "jdtls", "gopls", "bashls", "cssmodules_ls", "eslint", "gopls", "tsserver", "twiggy_language_server"}
+local servers = { "clangd", "ruby_lsp", "standardrb", "jdtls", "gopls", "bashls", "cssmodules_ls", "eslint", "gopls", "ts_ls", "twiggy_language_server", "elixirls"}
+
+
+require'lspconfig'.elixirls.setup{
+    cmd = { "/home/ben/software/elixir-ls/language_server.sh" };
+}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -15,6 +20,10 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+
+require'lspconfig'.elixirls.setup{
+    cmd = { "/home/ben/software/elixir-ls/language_server.sh" };
+}
 -- Without the loop, you would have to manually set up each LSP 
 -- 
 -- lspconfig.html.setup {

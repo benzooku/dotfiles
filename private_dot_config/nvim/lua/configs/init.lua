@@ -1,12 +1,8 @@
-require("configs.harpoon")
-require("configs.fugitive")
-require("configs.mini")
-require("configs.telescope")
-require("configs.treesitter")
-require("configs.undotree")
-require("configs.conform")
-require("configs.lazy")
-require("configs.telescope")
-require("configs.devcontainer")
-require("configs.nvim-tree")
-require("configs.colors")
+require "configs.conform"
+require "configs.fugitive"
+require "configs.harpoon"
+require "configs.mini"
+require "configs.nvim-tree"
+require "configs.telescope"
+require "configs.treesitter"
+require "configs.undotree"

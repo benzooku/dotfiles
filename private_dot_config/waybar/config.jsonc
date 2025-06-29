@@ -89,7 +89,7 @@
 			"car": "",
 			"default": ["", "", ""],
 		},
-		"on-click": "pavucontrol"
+		"on-click": "GSK_RENDERER=cairo pavucontrol"
 	},
 	"custom/power":{
         "tooltip": false,
